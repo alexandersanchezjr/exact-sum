@@ -8,27 +8,31 @@ import java.io.OutputStreamWriter;
 
 public class Main {
 	private static final String SEPARATOR = " ";
+	static int [] prices;
+	static int money;
 	
-	public void readData () throws IOException {
+	public static void readData () throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		String line = br.readLine();
 		line = br.readLine();
 		String[] parts = line.split(SEPARATOR);
-		int [] prices = new int [parts.length];
+		prices = new int [parts.length];
 		for (int j = 0; j < parts.length; j++) {
 			prices[j] = Integer.parseInt(parts[j]);
 		}
 		line = br.readLine();
-		int money = Integer.parseInt(line);
+		money = Integer.parseInt(line);
 		
 		br.close();	
 
 	}
-
-	public static void main(String[] args) {
+	public static void writeData () throws IOException {
 		
+	}
+	public static void main(String[] args) throws IOException {
 		
+		readData();
 		
 
 	    	
