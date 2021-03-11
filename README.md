@@ -1,4 +1,11 @@
 # exact-sum
+Peter received money from his parents this week and wants to spend it all buying books. But he does
+not read a book so fast, because he likes to enjoy every single word while he is reading. In this way, it
+takes him a week to finish a book.
+As Peter receives money every two weeks, he decided to buy two books, then he can read them until
+receive more money. As he wishes to spend all the money, he should choose two books whose prices
+summed up are equal to the money that he has. It is a little bit difficult to find these books, so Peter
+asks your help to find them.
 
 ### **Input**
 Each test case starts with 2 ≤ N ≤ 10000, the number of available books. Next line will have N
