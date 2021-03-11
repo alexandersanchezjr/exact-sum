@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
 public class Main {
 	private static final String SEPARATOR = " ";
@@ -28,12 +29,40 @@ public class Main {
 
 	}
 	public static void writeData () throws IOException {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int minRest = 1000001;
+		int bookX = 0;
+		int bookY = 0;
+		int rest;
+		Arrays.sort(prices);
 		
+		for (int i = 0; i < prices.length; i++) {
+			int priceToMoney = money - prices[i];
+			int bookIndex = Arrays.binarySearch(prices, priceToMoney);
+			if (bookIndex >= 0) {
+				rest = (prices[i] - prices[bookIndex]) > 0 ? (prices[i] - prices[bookIndex]) : -(prices[i] - prices[bookIndex]);
+				if (rest < minRest) {
+					minRest = rest;
+					bookX = prices[i];
+					bookY = prices[bookIndex];
+					System.out.println(bookX + " " + bookY);
+				}
+			}
+					
+				
+			
+		}
+		bw.write("Peter should buy books whose prices are " + bookX + " and " + bookY + ".");
+		
+		bw.newLine();
+		bw.flush();
+		bw.close();
 	}
 	public static void main(String[] args) throws IOException {
 		
 		readData();
-		
+		writeData();
 
 	    	
 	}		
