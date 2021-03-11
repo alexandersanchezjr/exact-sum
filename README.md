@@ -20,4 +20,4 @@ is always possible to find a solution, if there are multiple solutions print the
 the difference between the prices i and j. After each test case you must print a blank line.
 
 ## Credits
-This is an [Online Judge](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1998) excersise.
+This is an [Online Judge](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1998) excercise.
