@@ -14,22 +14,34 @@ public class Main {
 	
 	public static void readData () throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		String line = br.readLine();
-		line = br.readLine();
-		String[] parts = line.split(SEPARATOR);
-		prices = new int [parts.length];
-		for (int j = 0; j < parts.length; j++) {
-			prices[j] = Integer.parseInt(parts[j]);
-		}
-		line = br.readLine();
-		money = Integer.parseInt(line);
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		br.close();	
+		String line;
+		String jump = "";
+		do{
+			line = " ";
+			br.readLine();
+			line = br.readLine();
+			String[] parts = line.split(SEPARATOR);
+			prices = new int [parts.length];
+			for (int j = 0; j < parts.length; j++) {
+				prices[j] = Integer.parseInt(parts[j]);
+			}
+			line = br.readLine();
+			money = Integer.parseInt(line);
+			bw.write(jump + writeData());
+			jump = "\n";
+			line = br.readLine();
+			
+		}while (line != null);
+			
+			
+			
+		br.close();
+		bw.close();
 
 	}
-	public static void writeData () throws IOException {
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	public static String writeData () throws IOException {
 
 		int minRest = 1000001;
 		int bookX = 0;
@@ -46,24 +58,19 @@ public class Main {
 					minRest = rest;
 					bookX = prices[i];
 					bookY = prices[bookIndex];
-					System.out.println(bookX + " " + bookY);
 				}
-			}
-					
-				
-			
+			}			
 		}
-		bw.write("Peter should buy books whose prices are " + bookX + " and " + bookY + ".");
+		return "Peter should buy books whose prices are " + bookX + " and " + bookY + ".\n";
 		
-		bw.newLine();
-		bw.flush();
-		bw.close();
+		
+		
 	}
 	public static void main(String[] args) throws IOException {
 		
 		readData();
-		writeData();
-
+		
+		
 	    	
 	}		
 
