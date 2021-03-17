@@ -62,16 +62,11 @@ public class Main {
 			}			
 		}
 		return "Peter should buy books whose prices are " + bookX + " and " + bookY + ".\n";
-		
-		
-		
 	}
 	public static void main(String[] args) throws IOException {
 		
 		readData();
-		
-		
-	    	
+    	
 	}		
 
 }
