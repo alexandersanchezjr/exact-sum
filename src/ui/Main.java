@@ -16,21 +16,20 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		String line;
-		String jump = "";
+		String line = br.readLine();
 		do{
-			line = " ";
-			br.readLine();
-			line = br.readLine();
-			String[] parts = line.split(SEPARATOR);
-			prices = new int [parts.length];
-			for (int j = 0; j < parts.length; j++) {
-				prices[j] = Integer.parseInt(parts[j]);
+			if(!line.equals("")) {
+				line = br.readLine();
+				String[] parts = line.split(SEPARATOR);
+				prices = new int [parts.length];
+				for (int j = 0; j < parts.length; j++) {
+					prices[j] = Integer.parseInt(parts[j]);
+				}
+				line = br.readLine();
+				money = Integer.parseInt(line);
+				bw.write(writeData());
+				
 			}
-			line = br.readLine();
-			money = Integer.parseInt(line);
-			bw.write(jump + writeData());
-			jump = "\n";
 			line = br.readLine();
 			
 		}while (line != null);
@@ -52,7 +51,7 @@ public class Main {
 		for (int i = 0; i < prices.length; i++) {
 			int priceToMoney = money - prices[i];
 			int bookIndex = Arrays.binarySearch(prices, priceToMoney);
-			if (bookIndex >= 0) {
+			if (bookIndex >= 0 && bookIndex != i) {
 				rest = (prices[i] - prices[bookIndex]) > 0 ? (prices[i] - prices[bookIndex]) : -(prices[i] - prices[bookIndex]);
 				if (rest < minRest) {
 					minRest = rest;
@@ -61,7 +60,7 @@ public class Main {
 				}
 			}			
 		}
-		return "Peter should buy books whose prices are " + bookX + " and " + bookY + ".\n";
+		return "Peter should buy books whose prices are " + bookX + " and " + bookY + ".\n\n";
 	}
 	public static void main(String[] args) throws IOException {
 		
